@@ -2,42 +2,37 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 
+import javax.swing.Timer;
+
 import hilfe.*;
 
-public class Zahlenliste1mit2DArray extends HJFrame {
+public class UhrAnwendung extends HJFrame {
 	// globale Variablen
-	private static final int WIDTH = 450;
-	private static final int HEIGHT = 450;
+	private static final int WIDTH = 500;
+	private static final int HEIGHT = 500;
 	private static final Color BACKGROUND = Color.WHITE;
 	private static final Color FOREGROUND = Color.BLACK;
-	private int[][] z = new int[10][10];
+	Uhr uhr = new Uhr(100, 100);
+	Timer timer = new Timer(1000, this);
 	
-	public Zahlenliste1mit2DArray(final String title) {
+	public UhrAnwendung(final String title) {
 		super(WIDTH, HEIGHT, BACKGROUND, FOREGROUND, title);
 		// eigene Initialisierung
-		for (int x = 0; x < 10; x++) {
-			for (int y = 0; y < 10; y++) {
-				z[x][y] = 10 * y + x + 100;
-			}
-		}
+		timer.start();
 	}
 
 	@Override
 	public void myPaint(Graphics g) {
 		// wird aufgerufen, wenn das Fenster neu gezeichnet wird
-		for (int x = 0; x < 10; x++) {
-			for (int y = 0; y < 10; y++) {
-				g.drawString("" + z[x][y], x * 40 + 30, y * 40 + 50);
-			}
-		}
+		uhr.sekunde();
+		uhr.zeichnen(g);
 	}
 
 	public static void main(final String[] args) {
 		EventQueue.invokeLater(new Runnable() {
-			@Override
 			public void run() {
 				try {
-					Zahlenliste1mit2DArray anwendung = new Zahlenliste1mit2DArray("Zahlenliste1 (2D)");
+					UhrAnwendung anwendung = new UhrAnwendung("Uhr");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
