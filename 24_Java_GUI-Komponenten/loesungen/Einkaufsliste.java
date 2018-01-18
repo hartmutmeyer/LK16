@@ -39,13 +39,14 @@ public class Einkaufsliste extends JFrame {
 	 * Create the frame.
 	 */
 	public Einkaufsliste() {
+		setResizable(false);
 		createGUI();
 	}
 
 	private void createGUI() {
 		setTitle("Einkaufliste");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 671, 491);
+		setBounds(100, 100, 505, 348);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -57,7 +58,7 @@ public class Einkaufsliste extends JFrame {
 				hinzufuegen();
 			}
 		});
-		tfNeuerEintrag.setBounds(10, 11, 467, 20);
+		tfNeuerEintrag.setBounds(10, 11, 305, 20);
 		contentPane.add(tfNeuerEintrag);
 		tfNeuerEintrag.setColumns(10);
 		
@@ -67,11 +68,11 @@ public class Einkaufsliste extends JFrame {
 				hinzufuegen();
 			}
 		});
-		btnHinzufuegen.setBounds(487, 10, 158, 23);
+		btnHinzufuegen.setBounds(327, 9, 158, 23);
 		contentPane.add(btnHinzufuegen);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 42, 635, 365);
+		scrollPane.setBounds(10, 42, 475, 230);
 		contentPane.add(scrollPane);
 		listEinkaeufe.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
@@ -83,7 +84,7 @@ public class Einkaufsliste extends JFrame {
 				loeschen();
 			}
 		});
-		btnEintragLoeschen.setBounds(487, 418, 158, 23);
+		btnEintragLoeschen.setBounds(327, 284, 158, 23);
 		contentPane.add(btnEintragLoeschen);
 	}
 
