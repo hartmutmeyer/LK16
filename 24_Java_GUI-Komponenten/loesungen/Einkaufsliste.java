@@ -39,7 +39,6 @@ public class Einkaufsliste extends JFrame {
 	 * Create the frame.
 	 */
 	public Einkaufsliste() {
-		setResizable(false);
 		createGUI();
 	}
 
@@ -86,6 +85,7 @@ public class Einkaufsliste extends JFrame {
 		});
 		btnEintragLoeschen.setBounds(327, 284, 158, 23);
 		contentPane.add(btnEintragLoeschen);
+		setResizable(false);
 	}
 
 	private void loeschen() {
