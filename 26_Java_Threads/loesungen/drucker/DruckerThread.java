@@ -3,14 +3,12 @@ import java.util.*;
 public class DruckerThread extends Thread {
 
 	private Drucker drucker;
-	private int nr;
 	private String zuDruckenderText;
 	private static Random zufall = new Random();
 	private static Object monitor = new Object();
 
 	public DruckerThread(Drucker main, int nr) {
 		this.drucker = main;
-		this.nr = nr;
 		zuDruckenderText = "Thread " + nr + " druckt ...";
 	}
 
