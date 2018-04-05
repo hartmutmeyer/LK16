@@ -127,9 +127,9 @@ public class Caesar extends JFrame {
 			JOptionPane.showMessageDialog(this, "Verschlüsselte Datei nicht gefunden!");
 			return;
 		}
-		try (InputStream is = new FileInputStream(klartext.getFile());
+		try (InputStream is = new FileInputStream(verschluesselt.getFile());
 				InputStreamReader in = new InputStreamReader(is, "UTF-8");
-				OutputStream os = new FileOutputStream(verschluesselt.getFile());
+				OutputStream os = new FileOutputStream(klartext.getFile());
 				OutputStreamWriter out = new OutputStreamWriter(os, "UTF-8")) {
 			int zeichen;
 			int key = Integer.parseInt(tfSchluessel.getText());
