@@ -262,7 +262,8 @@ WHERE nachname = 'Anderson';
 #     Name, Geburtstag und Todestag des Hundes an.
 #SELECT besitzer.vorname, besitzer.nachname, tier.name, tier.geburtstag, tier.todestag 
 #FROM besitzer, tier 
-#WHERE tier.tierart = 'Hund';
+#WHERE besitzer_id = tier_besitzer_id
+#AND tier.tierart = 'Hund';
 
 # 3G) Zeige eine Liste der Besitzer (Vor- und Nachname) und der Anzahl der Tiere an, die
 #     sie besitzen. Sortiere die Liste in umgekehrter alphabetischer Reihenfolge nach
