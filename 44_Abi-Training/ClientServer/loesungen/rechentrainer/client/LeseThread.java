@@ -26,6 +26,9 @@ public class LeseThread extends Thread {
 					break;
 				case '%':
 					meldung();
+					break;
+				default:
+					JOptionPane.showMessageDialog(main, "Protokoll-Fehler - empfangen: " + c);
 				}
 			}
 		} catch (Exception e) {
