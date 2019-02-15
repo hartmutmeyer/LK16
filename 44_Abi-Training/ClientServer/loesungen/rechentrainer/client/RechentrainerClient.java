@@ -10,7 +10,6 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 
@@ -23,8 +22,8 @@ public class RechentrainerClient extends JFrame {
 	JTextField tfLoesung;
 	JButton btnStarten;
 	JButton btnLoesungSenden;
-	Socket socket;
-	OutputStreamWriter out;
+	private Socket socket;
+	private OutputStreamWriter out;
 
 	public RechentrainerClient() {
 		super("Rechentrainer Client");
@@ -63,6 +62,7 @@ public class RechentrainerClient extends JFrame {
 		
 		tfName = new JTextField();
 		tfName.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				verbinden();
 			}
@@ -79,6 +79,7 @@ public class RechentrainerClient extends JFrame {
 		
 		tfLoesung = new JTextField();
 		tfLoesung.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				loesungSenden();
 			}
