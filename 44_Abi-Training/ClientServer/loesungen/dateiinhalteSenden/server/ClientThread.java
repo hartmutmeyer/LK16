@@ -34,12 +34,14 @@ public class ClientThread extends Thread {
 					case '%':
 						zustand = NORMALER_MODUS;
 						outNet.write("Geheimmodus ausgeschaltet" + System.lineSeparator());
+						outNet.flush();
 						break;
 					case '#':
 						passwortAendern();
 						break;
 					default:
 						outNet.write("Falsche Eingabe" + System.lineSeparator());
+						outNet.flush();
 					}
 				}
 			}
