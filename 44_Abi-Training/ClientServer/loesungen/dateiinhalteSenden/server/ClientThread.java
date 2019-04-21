@@ -62,20 +62,26 @@ public class ClientThread extends Thread {
 		try (InputStreamReader inFile = new InputStreamReader(new FileInputStream(url.getFile()), "UTF-8")) {
 			switch (zustand) {
 			case NORMALER_MODUS:
+				// Der Inhalt der Datei wird zeichenweise an den Client gesendet.
 				while ((zeichen = inFile.read()) != -1) {
 					outNet.write(zeichen);
 				}
-			break;
+				break;
 			case GEHEIM_MODUS:
+				// In text wird der Inhalt der Datei zunächst Wort für Wort eingesammelt.
 				String text = "";
 				while ((zeichen = inFile.read()) != -1) {
 					char c = (char) zeichen;
+					// Wenn das nächste Zeichen ein Buchstabe ist, dann hänge es an text an ...
 					if ((c >= 'a' && c <= 'z') || c >= 'A' && c <= 'Z') {
 						text += c;
-					} else {
-						if (text.length() >= 1) {
+					} else { // ... ansonsten ist das Wort beendet. Wenn das eingesammelte Wort aus mindestens
+						     // zwei Zeichen besteht, dann nimm den zweiten Buchstaben des Wortes und 
+						     // schicke diesen an den Client.
+						if (text.length() > 1) {
 							outNet.write(text.charAt(1));
 						}
+						// text wird wieder geleert, um das nächste Wort einsammeln zu können.
 						text = "";
 					}
 				}
